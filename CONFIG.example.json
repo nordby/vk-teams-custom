@@ -1,0 +1,20 @@
+{
+  "vk_teams_domains": {
+    "main": "teams.your-organization.com",
+    "webim": "webim.teams.your-organization.com",
+    "api": "u.teams.your-organization.com",
+    "backup_api": "ub.teams.your-organization.com"
+  },
+  "api_version": "125",
+  "custom_reactions": ["👍", "🤡", "🤦", "🔥", "💩", "✨"],
+  "ai_providers": {
+    "custom": {
+      "model": "",
+      "endpoint": "",
+      "apiKey": "",
+      "format": "openai",
+      "temperature": 0.5,
+      "maxTokens": 4000
+    }
+  }
+}

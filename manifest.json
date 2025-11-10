@@ -1,0 +1,59 @@
+{
+  "manifest_version": 3,
+  "name": "VK Teams Custom Reactions",
+  "version": "1.1.0",
+  "description": "Add custom emoji reactions to VK Teams messages",
+  "permissions": [
+    "activeTab",
+    "cookies",
+    "storage",
+    "unlimitedStorage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "https://teams.your-organization.com/*",
+    "https://*.teams.your-organization.com/*",
+    "https://webim.teams.your-organization.com/*",
+    "https://u.teams.your-organization.com/*",
+    "https://ub.teams.your-organization.com/*",
+    "https://api.openai.com/*",
+    "https://api.anthropic.com/*",
+    "https://generativelanguage.googleapis.com/*",
+    "http://localhost:11434/*",
+    "https://*/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "default_title": "VK Teams Custom Reactions Settings"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://teams.your-organization.com/*",
+        "https://*.teams.your-organization.com/*",
+        "https://webim.teams.your-organization.com/*"
+      ],
+      "js": [
+        "ai-provider.js",
+        "modules/call-recording/audio-mixer.js",
+        "modules/call-recording/call-detector.js",
+        "modules/call-recording/audio-recorder.js",
+        "modules/call-recording/storage-manager.js",
+        "modules/call-recording/audio-transcription.js",
+        "modules/call-recording/call-recording-manager.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
